@@ -57,6 +57,7 @@
     <script>
         let buttonLabels = ["Pencet ini", "Pencet lagi", "Lagi", "Ayo lagi", "Aowkakwoa"];
         let labelIndex = 0;
+        let clickCount = 0;
 
         function showMessage() {
             const messages = [
@@ -68,6 +69,12 @@
             ];
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             document.getElementById("message").textContent = randomMessage;
+            
+            clickCount++;
+            if (clickCount >= 10) {
+                window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                return;
+            }
             
             const btn = document.getElementById("trollButton");
             let newTop, newLeft;
