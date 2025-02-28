@@ -8,15 +8,18 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 0;
             background-color: #ffcccc;
             position: relative;
             height: 100vh;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            margin: 20px;
         }
         button {
             background-color: red;
@@ -29,17 +32,15 @@
             position: absolute;
         }
         #message {
-            margin-top: 20px;
-            font-size: 24px;
+            font-size: 20px;
             color: black;
             font-weight: bold;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
             white-space: nowrap;
-            animation: bounce 1s infinite;
-            position: relative;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            text-align: center;
         }
     </style>
 </head>
@@ -66,9 +67,9 @@
             const btn = document.getElementById("trollButton");
             let newTop, newLeft;
             do {
-                newTop = Math.random() * (window.innerHeight - 100);
+                newTop = Math.random() * (window.innerHeight - 150) + 50;
                 newLeft = Math.random() * (window.innerWidth - 150);
-            } while (newTop < window.innerHeight * 0.4); // Menghindari tabrakan dengan pesan di atas
+            } while (newTop < window.innerHeight * 0.3); // Hindari area atas
             
             btn.style.top = newTop + "px";
             btn.style.left = newLeft + "px";
