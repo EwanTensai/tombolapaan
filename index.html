@@ -8,44 +8,41 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 0;
             background-color: #ffcccc;
             position: relative;
             height: 100vh;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         button {
             background-color: red;
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             border-radius: 10px;
             position: absolute;
+            max-width: 90%;
         }
         #message {
-            margin-top: 20px;
-            font-size: 24px;
+            font-size: 18px;
             color: black;
             font-weight: bold;
-            position: absolute;
-            left: 50%;
-            top: 10%;
-            transform: translateX(-50%);
+            margin-bottom: 20px;
+            text-align: center;
             white-space: nowrap;
-            animation: bounce 1s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
         }
     </style>
 </head>
 <body>
     <h1 id="title">Coba Pencet</h1>
-    <button id="trollButton" onclick="showMessage()">Pencet ini</button>
     <p id="message"></p>
+    <button id="trollButton" onclick="showMessage()">Pencet ini</button>
 
     <script>
         let buttonLabels = ["Pencet ini", "Pencet lagi", "Lagi", "Ayo lagi", "Aowkakwoa"];
@@ -59,20 +56,18 @@
                 "Kasihan amat 🤣",
                 "Gabisa KRS an ya?🤡"
             ];
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            document.getElementById("message").textContent = randomMessage;
+            document.getElementById("message").textContent = messages[Math.floor(Math.random() * messages.length)];
             
             const btn = document.getElementById("trollButton");
             let newTop, newLeft;
             do {
-                newTop = Math.random() * (window.innerHeight - 100);
-                newLeft = Math.random() * (window.innerWidth - 150);
-            } while (newTop < window.innerHeight * 0.2); // Menghindari tabrakan dengan pesan di atas
+                newTop = Math.random() * (window.innerHeight - 60);
+                newLeft = Math.random() * (window.innerWidth - 120);
+            } while (newTop < 50); 
             
-            btn.style.top = newTop + "px";
-            btn.style.left = newLeft + "px";
+            btn.style.top = `${newTop}px`;
+            btn.style.left = `${newLeft}px`;
             
-            // Ubah teks tombol
             btn.textContent = buttonLabels[labelIndex];
             labelIndex = (labelIndex + 1) % buttonLabels.length;
         }
